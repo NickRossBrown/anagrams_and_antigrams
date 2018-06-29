@@ -4,7 +4,8 @@ class Anagram_antigram
 
   end
   def anagrams()
-    plitted_wordseach do |letter|
+    splitted_words = []
+    inputted_words do |letter|
       splitted_words = splitted_words.unshift(letter)
     end
     splitted_words = @inputted_words.split(" ")
@@ -18,8 +19,7 @@ class Anagram_antigram
       array.push(word)
       puts word
     end
-    splitted_wordseach do |letter|
-      splitted_words = splitted_words.unshift(letter)
+
     end
     array2
   end
