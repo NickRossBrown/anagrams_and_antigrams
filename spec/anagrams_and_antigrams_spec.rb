@@ -11,8 +11,8 @@ describe ('Anagrams_and_antigrams') do
     anagrams_and_antigrams = Anagram_antigram.new("tea eat tea")
     expect(anagrams_and_antigrams.anagrams()).to(eq(["eat", "tea", "tea"]))
   end
-  # it ("returns a true statement if two words are a anagrams") do
-  #   anagrams_and_antigrams = Anagram_antigram.new("tea eat tea")
-  #   expect(anagrams_and_antigrams.anagrams()).to(eq(true))
-  # end
+  it ("returns a true statement if two words are a anagrams") do
+    anagrams_and_antigrams = Anagram_antigram.new("tea eat tea")
+    expect(anagrams_and_antigrams.anagrams()).to(eq(true))
+  end
 end
