@@ -8,10 +8,10 @@
 
 ## Specifications
 * _a ruby program that has a method that test for anagrams and antigrams. The method has multiple tests.
-* _test 1 takes a string a returns a string
-  - _Example Input: _ "ruby"
-  - _Example Output: _"ruby"
-* _2
+* _1 test 1 takes a string a returns a string
+  - _Example Input: _ "string"
+  - _Example Output: _"string"
+* _2 sorts the words in a string into a array
   - _Example Input: _
   - _Example Output: _
 * _3
