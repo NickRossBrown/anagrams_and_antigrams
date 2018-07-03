@@ -9,7 +9,7 @@ class Anagram_antigram
   end
   def anagrams?(array)
     anagram = false
-    word_count = Hash.new(0)
+    word_count = Word_count.new(0)
     array.each do |word|
       word_count[word] += 1
     end
