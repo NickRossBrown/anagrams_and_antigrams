@@ -39,6 +39,10 @@ describe ('Anagrams_and_antigrams') do
     anagrams= Anagrams.new("dddfg")
     expect(anagrams.has_vowel?("dddfg")).to(eq(false))
   end
+  it ("checks if any word in array doesn't have a vowel") do
+    anagrams= Anagrams.new("dddfg")
+    expect(anagrams.word_array_vowel(["babbb","wsadfwsdf","fqfvsdn"])).to(eq("You need to input words with vowels!"))
+  end
   # it ("test if two words are antigrams") do
   #   anagrams_and_antigrams = Anagram_antigram.new("asdf hjkl")
   #   expect(anagrams_and_antigrams.anagrams()).to(eq(true))

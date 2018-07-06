@@ -73,6 +73,18 @@ class Anagrams
     end
   end
 
+  def word_array_vowel(array)
+    sorted_words_array = []
+    array.each do |word|
+      if has_vowel?(word) == false
+        return "You need to input words with vowels!"
+      else
+        next
+      end
+    end
+    "All the words have vowels!"
+  end
+
   def anagrams_hashtest?(array)
     anagram = false
     word_count = Word_count.new(0)
