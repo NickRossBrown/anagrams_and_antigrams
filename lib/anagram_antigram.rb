@@ -30,7 +30,19 @@ class Anagrams
     union = array | array
   end
   def anagrams? (array)
-    union = array | array
+    puts "array"
+    puts array
+    puts "union"
+    puts union(array)
+    puts "array length"
+    puts array.length
+    puts "union length"
+    puts union(array).length
+    if array.length != union(array).length
+      return true
+    else
+      return false
+    end
   end
 
 
