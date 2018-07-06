@@ -35,10 +35,10 @@ describe ('Anagrams_and_antigrams') do
     anagram= Anagrams.new("Restful, Fluster")
     expect(anagram.string_lowercase("RESTFul Fluster")).to(eq("restful fluster"))
   end
-  # it ("checks if an inputted string is defined as a word") do
-  #   anagrams_and_antigrams = Anagram_antigram.new("asdfg")
-  #   expect(anagrams_and_antigrams.anagrams()).to(eq("You need to input actual words!"))
-  # end
+  it ("checks if a word has a vowel") do
+    anagrams= Anagrams.new("dddfg")
+    expect(anagrams.has_vowel?("dddfg")).to(eq(false))
+  end
   # it ("test if two words are antigrams") do
   #   anagrams_and_antigrams = Anagram_antigram.new("asdf hjkl")
   #   expect(anagrams_and_antigrams.anagrams()).to(eq(true))

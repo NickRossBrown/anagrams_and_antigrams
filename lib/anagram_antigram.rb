@@ -55,6 +55,23 @@ class Anagrams
     string.downcase
   end
 
+  def has_vowel? (word)
+    if word.include? "a"
+      true
+    elsif word.include? "e"
+      true
+    elsif word.include? "i"
+      true
+    elsif word.include? "o"
+      true
+    elsif word.include? "u"
+      true
+    elsif word.include? "y"
+      true
+    else
+      false
+    end
+  end
 
   def anagrams_hashtest?(array)
     anagram = false
