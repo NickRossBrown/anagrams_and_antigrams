@@ -1,4 +1,4 @@
-class Anagram_antigram
+class Anagrams
   attr_reader (:inputted_words)
   def initialize (words_input)
     @inputted_words = words_input
@@ -7,6 +7,16 @@ class Anagram_antigram
   def return_inputted_words
     inputted_words
   end
+  def sorted_words
+    sorted_words_array = []
+    words_array = @inputted_words.split(" ")
+    words_array.each do |word|
+      letters_array = word.split("").sort.join
+      sorted_words_array.push(letters_array)
+    end
+    sorted_words_array
+  end
+
   def anagrams?(array)
     anagram = false
     word_count = Word_count.new(0)
