@@ -74,7 +74,6 @@ class Anagrams
   end
 
   def word_array_vowel(array)
-    sorted_words_array = []
     array.each do |word|
       if has_vowel?(word) == false
         return "You need to input words with vowels!"
@@ -84,6 +83,43 @@ class Anagrams
     end
     "All the words have vowels!"
   end
+  def intersection(set)
+    # puts set
+    # puts "set ASDASD"
+    set | set
+    # puts "intersection ASDASD"
+  end
+
+  def words_to_array_thing (word)
+    letter_array=[]
+    array.each do |word|
+      word.split("").each do |letter|
+        letter_array.push(letter)
+      end
+    end
+    puts letter_array
+    letter_array
+  end
+
+  def antigram?(array)
+    if intersection(array)== array
+      true
+    else
+      false
+    end
+  end
+  def antigram_return_statement(array
+    puts antigram?(array)
+    if antigram?(array) == true
+      "these two words are antigrams!"
+    else
+      "These words have letter matches and are NOT antigrams."
+    end
+  end
+  def string_lowercase (string)
+    string.downcase
+  end
+
 
   def anagrams_hashtest?(array)
     anagram = false

@@ -44,11 +44,15 @@ describe ('Anagrams_and_antigrams') do
     expect(anagrams.word_array_vowel(["babbb","wsadfwsdf","fqfvsdn"])).to(eq("You need to input words with vowels!"))
   end
   # it ("test if two words are antigrams") do
-  #   anagrams_and_antigrams = Anagram_antigram.new("asdf hjkl")
-  #   expect(anagrams_and_antigrams.anagrams()).to(eq(true))
+  #   anagrams = Anagrams.new("asdf hjkl")
+  #   expect(anagrams.antigram?(["hi","bye"])).to(eq(true))
   # end
-  # it ("testf two words are anagrams, then returns a statement if two words are antigrams") do
-  #   anagrams_and_antigrams = Anagram_antigram.new("asdf hjkl")
-  #   expect(anagrams_and_antigrams.anagrams()).to(eq("These words have no letter matches and are antigrams."))
-  # end
+  it ("test if two words are anagrams with a true or false return") do
+    anagrams= Anagrams.new("asdf hjkl")
+    expect(anagrams.antigram?(["a","b","d","c","f"])).to(eq(true))
+  end
+  it ("test if two words are anagrams, then returns a statement if two words are antigrams") do
+    anagrams= Anagrams.new("asdf hjkl")
+    expect(anagrams.antigram_return_statement(["a","b","d","c","f","a"])).to(eq("These words have letter matches and are NOT antigrams."))
+  end
 end
