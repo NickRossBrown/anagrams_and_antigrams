@@ -55,6 +55,7 @@ class Anagrams
     string.downcase
   end
 
+
   def anagrams_hashtest?(array)
     anagram = false
     word_count = Word_count.new(0)

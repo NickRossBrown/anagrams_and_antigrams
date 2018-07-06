@@ -33,7 +33,7 @@ describe ('Anagrams_and_antigrams') do
   end
   it ("converts all the letters in a word to lower case") do
     anagram= Anagrams.new("Restful, Fluster")
-    expect(anagram.string_lowercase("REsTFul FlUSTer")).to(eq("restful fluster"))
+    expect(anagram.string_lowercase("RESTFul Fluster")).to(eq("restful fluster"))
   end
   # it ("checks if an inputted string is defined as a word") do
   #   anagrams_and_antigrams = Anagram_antigram.new("asdfg")
