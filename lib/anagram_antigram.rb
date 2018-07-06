@@ -30,21 +30,30 @@ class Anagrams
     union = array | array
   end
   def anagrams? (array)
-    puts "array"
-    puts array
-    puts "union"
-    puts union(array)
-    puts "array length"
-    puts array.length
-    puts "union length"
-    puts union(array).length
+    # puts "array"
+    # puts array
+    # puts "union"
+    # puts union(array)
+    # puts "array length"
+    # puts array.length
+    # puts "union length"
+    # puts union(array).length
     if array.length != union(array).length
       return true
     else
       return false
     end
   end
-
+  def anagram_return_statement(array)
+    if anagrams?(array)==true
+      "these two words are anagrams!"
+    else
+      "these two words NOT are anagrams!"
+    end
+  end
+  def string_lowercase (string)
+    string.downcase
+  end
 
   def anagrams_hashtest?(array)
     anagram = false
