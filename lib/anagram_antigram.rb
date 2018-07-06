@@ -4,8 +4,18 @@ class Anagrams
     @inputted_words = words_input
 
   end
-  def return_inputted_words
-    inputted_words
+  def string_to_words_array ()
+    @inputted_words.split(" ")
+  end
+  def word_sort(word)
+    word.split("").sort.join
+  end
+  def array_sort(array)
+    sorted_words_array = []
+    array.each do |word|
+      sorted_words_array.push(word.split("").sort.join)
+    end
+    sorted_words_array
   end
   def sorted_words
     sorted_words_array = []
@@ -16,8 +26,15 @@ class Anagrams
     end
     sorted_words_array
   end
+  def union (array)
+    union = array | array
+  end
+  def anagrams? (array)
+    union = array | array
+  end
 
-  def anagrams?(array)
+
+  def anagrams_hashtest?(array)
     anagram = false
     word_count = Word_count.new(0)
     array.each do |word|
