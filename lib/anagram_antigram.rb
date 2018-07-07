@@ -5,52 +5,21 @@ class Anagrams
   end
 
   def master ()
-    # puts @inputted_words
     words = string_lowercase(@inputted_words)
-    # puts words
     words = sorted_words(words)
-    # puts words
     words = only_letter_array(words)
-    # puts words
+    words = remove_word_letter_duplicates (words)
     vowel = word_array_vowel(words)
-    # puts vowel
     words_union = union(words)
-    # puts words_union
     anagram = anagram?(words)
-    # puts anagram
-    # puts "WORDS"
-    # puts words
     words = union(words)
     letters = only_letters(words)
-    # puts letters
-    # puts letters.split("")
     antigram = antigram?(letters.split(""))
-    # puts antigram
-    antigram = antigram_return_statement(words)
-    # puts antigram
-    # puts anagram
-    puts vowel + " " + anagram  + " " + antigram
-     vowel + " " + anagram  + " " + antigram
+    vowel + " " + anagram  + " " + antigram
   end
 
   def string_lowercase (string)
     string.downcase
-  end
-
-  def string_to_words_array (string)
-    string.split(" ")
-  end
-
-  def word_sort(word)
-    word.split("").sort.join
-  end
-
-  def array_sort(array)
-    sorted_words_array = []
-    array.each do |word|
-      sorted_words_array.push(word.split("").sort.join)
-    end
-    sorted_words_array
   end
 
   def sorted_words (string)
@@ -68,25 +37,9 @@ class Anagrams
   end
   def anagram? (array)
     if array.length != union(array).length
-      return "these words have anagrams!"
+      return "These words have matching anagrams!"
     else
-      return "these words do NOT have anagrams!"
-    end
-  end
-
-  def anagrams? (array)
-    if array.length != union(array).length
-      return true
-    else
-      return false
-    end
-  end
-
-  def anagram_return_statement(array)
-    if anagrams?(array)==true
-      "these two words are anagrams!"
-    else
-      "these two words NOT are anagrams!"
+      return "These words do NOT have matching anagrams!"
     end
   end
 
@@ -118,42 +71,31 @@ class Anagrams
     end
     "All the words have vowels!"
   end
-  def intersection(set)
-    # puts set
-    # puts "set ASDASD"
-    set | set
-    # puts "intersection ASDASD"
-  end
 
-  def words_to_array_thing (word)
-    letter_array=[]
-    array.each do |word|
-      word.split("").each do |letter|
-        letter_array.push(letter)
-      end
-    end
-    letter_array
+  def intersection(set)
+    set | set
   end
 
   def antigram?(array)
     if intersection(array)== array
-      true
-    else
-      false
-    end
-  end
-
-  def antigram_return_statement(array)
-    # puts antigram?(array)
-    if antigram?(array) == true
-      "these words are antigrams!"
+      "These words are antigrams"
     else
       "These words have letter matches and are NOT antigrams."
     end
   end
+
+  def antigram_return_statement(array)
+    if antigram?(array) == true
+      "These words are antigrams"
+    else
+      "These words have letter matches and are NOT antigrams."
+    end
+  end
+
   def only_letters (string)
     string.to_s.gsub(/(\W|\d)/, "")
   end
+
   def only_letter_array(array)
     letter_array = []
     array.each do |word|
@@ -161,4 +103,16 @@ class Anagrams
     end
     letter_array
   end
+
+  def remove_word_letter_duplicates (array)
+    word_array=[]
+    array.each do |word|
+      unique_array = []
+      unique_array = word.split("")
+      unique_array = unique_array & unique_array
+      word_array.push(unique_array.join)
+    end
+    word_array
+  end
+
 end
