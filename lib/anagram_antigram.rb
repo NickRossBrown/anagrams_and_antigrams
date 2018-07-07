@@ -8,18 +8,11 @@ class Anagrams
     words = string_lowercase(@inputted_words)
     words = sorted_words(words)
     words = only_letter_array(words)
-    # words = remove_word_letter_duplicates (words)
     vowel = word_array_vowel(words)
-    # words_union = union(words)
     anagram = anagram?(words)
-    puts words
     words = remove_word_letter_duplicates (words)
-    puts words
-    puts "ASDDASDA"
     words = union(words)
-    puts words
     letters = only_letters(words)
-    puts letters
     antigram = antigram?(letters.split(""))
     vowel + " " + anagram  + " " + antigram
   end
