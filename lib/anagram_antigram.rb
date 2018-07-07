@@ -4,7 +4,7 @@ class Anagrams
     @inputted_words = words_input
   end
 
-  def master ()
+  def all_tests ()
     words = string_lowercase(@inputted_words)
     words = sorted_words(words)
     words = only_letter_array(words)
@@ -35,6 +35,7 @@ class Anagrams
   def union (array)
     union = array | array
   end
+
   def anagram? (array)
     if array.length != union(array).length
       return "These words have matching anagrams!"
