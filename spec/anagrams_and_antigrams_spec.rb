@@ -11,7 +11,7 @@ describe ('Anagrams_and_antigrams') do
 
   it ("returns the inputted words as a sorted array") do
     anagrams = Anagrams.new("")
-    expect(anagrams.sorted_words("why hello there")).to(eq(["aet", "aet", "aet"]))
+    expect(anagrams.sorted_words("tea eat tea")).to(eq(["aet", "aet", "aet"]))
   end
 
   it ("removes all non-word characters and removes digets") do
@@ -38,13 +38,21 @@ describe ('Anagrams_and_antigrams') do
     anagrams = Anagrams.new("")
     expect(anagrams.union(["aet", "aet"])).to(eq(["aet"]))
   end
+  it ("removes duplicate letters in each word") do
+    anagrams = Anagrams.new("")
+    expect(anagrams.remove_word_letter_duplicates(["apple", "bottle","boot"])).to(eq(["aple", "botle","bot"]))
+  end
+  it ("Combines all the words in an array into one big string") do
+    anagrams = Anagrams.new("")
+    expect(anagrams.only_letters(["toy", "bat","soccer"])).to(eq("toybatsoccer"))
+  end
 
   it ("tests for anagram by returning a true or false statment if there ar any non-unique letters") do
     anagrams= Anagrams.new("")
     expect(anagrams.antigram?(["a","b","d","c","f"])).to(eq("These words are antigrams"))
   end
 
-  it ("returns a statement if two words are, or are not antigrams") do
+  it ("returns a statement if two members are, or are not antigrams") do
     anagrams= Anagrams.new("")
     expect(anagrams.antigram_return_statement(["a","b","d","c","f","a"])).to(eq("These words have letter matches and are NOT antigrams."))
   end
