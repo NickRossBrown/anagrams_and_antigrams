@@ -5,7 +5,7 @@ require 'anagram_antigram'
 describe ('Anagrams_and_antigrams') do
   it ("seperates the words in a string to an array") do
     anagrams = Anagrams.new("this is a string with words")
-    expect(anagrams.string_to_words_array()).to(eq(["this","is", "a","string","with","words"]))
+    expect(anagrams.string_to_words_array("this is a string with words")).to(eq(["this","is", "a","string","with","words"]))
   end
   it ("sorts a word by alphabetical order") do
     anagrams = Anagrams.new("tea")
@@ -17,7 +17,7 @@ describe ('Anagrams_and_antigrams') do
   end
   it ("returns the inputted words as a sorted array") do
     anagrams = Anagrams.new("tea eat tea")
-    expect(anagrams.sorted_words()).to(eq(["aet", "aet", "aet"]))
+    expect(anagrams.sorted_words("tea eat tea")).to(eq(["aet", "aet", "aet"]))
   end
   it ("returns the union of a set with itself") do
     anagrams = Anagrams.new("eat tea")
@@ -43,16 +43,24 @@ describe ('Anagrams_and_antigrams') do
     anagrams= Anagrams.new("dddfg")
     expect(anagrams.word_array_vowel(["babbb","wsadfwsdf","fqfvsdn"])).to(eq("You need to input words with vowels!"))
   end
-  # it ("test if two words are antigrams") do
-  #   anagrams = Anagrams.new("asdf hjkl")
-  #   expect(anagrams.antigram?(["hi","bye"])).to(eq(true))
-  # end
-  it ("test if two words are anagrams with a true or false return") do
+  it ("tests for anagram by returning a true or false statment if there ar any non-unique letters") do
     anagrams= Anagrams.new("asdf hjkl")
     expect(anagrams.antigram?(["a","b","d","c","f"])).to(eq(true))
   end
-  it ("test if two words are anagrams, then returns a statement if two words are antigrams") do
+  it ("returns a statement if two words are, or are not antigrams") do
     anagrams= Anagrams.new("asdf hjkl")
     expect(anagrams.antigram_return_statement(["a","b","d","c","f","a"])).to(eq("These words have letter matches and are NOT antigrams."))
+  end
+  it ("removes all non-wrod characters and removes digets") do
+    anagrams= Anagrams.new("asdf235$#&()*,,,,}hjkl")
+    expect(anagrams.only_letters("asdf235$#&()*,,,,}hjkl")).to(eq("asdfhjkl"))
+  end
+  it ("removes all non-wrod characters and removes digets in an array") do
+    anagrams= Anagrams.new("asdasd")
+    expect(anagrams.only_letter_array(["asdf235","&()*}hjkl"])).to(eq(["asdf","hjkl"]))
+  end
+  it ("returns a complete test") do
+    anagrams= Anagrams.new("thI2S IS a a is st,,ring t^est")
+    expect(anagrams.master()).to(eq("All the words have vowels! these words have anagrams! These words have letter matches and are NOT antigrams."))
   end
 end

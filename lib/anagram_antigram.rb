@@ -1,15 +1,50 @@
 class Anagrams
-  attr_reader (:inputted_words)
+
   def initialize (words_input)
     @inputted_words = words_input
+  end
 
+  def master ()
+    # puts @inputted_words
+    words = string_lowercase(@inputted_words)
+    # puts words
+    words = sorted_words(words)
+    # puts words
+    words = only_letter_array(words)
+    # puts words
+    vowel = word_array_vowel(words)
+    # puts vowel
+    words_union = union(words)
+    # puts words_union
+    anagram = anagram?(words)
+    # puts anagram
+    # puts "WORDS"
+    # puts words
+    words = union(words)
+    letters = only_letters(words)
+    # puts letters
+    # puts letters.split("")
+    antigram = antigram?(letters.split(""))
+    # puts antigram
+    antigram = antigram_return_statement(words)
+    # puts antigram
+    # puts anagram
+    puts vowel + " " + anagram  + " " + antigram
+     vowel + " " + anagram  + " " + antigram
   end
-  def string_to_words_array ()
-    @inputted_words.split(" ")
+
+  def string_lowercase (string)
+    string.downcase
   end
+
+  def string_to_words_array (string)
+    string.split(" ")
+  end
+
   def word_sort(word)
     word.split("").sort.join
   end
+
   def array_sort(array)
     sorted_words_array = []
     array.each do |word|
@@ -17,42 +52,42 @@ class Anagrams
     end
     sorted_words_array
   end
-  def sorted_words
+
+  def sorted_words (string)
     sorted_words_array = []
-    words_array = @inputted_words.split(" ")
+    words_array = string.split(" ")
     words_array.each do |word|
       letters_array = word.split("").sort.join
       sorted_words_array.push(letters_array)
     end
     sorted_words_array
   end
+
   def union (array)
     union = array | array
   end
+  def anagram? (array)
+    if array.length != union(array).length
+      return "these words have anagrams!"
+    else
+      return "these words do NOT have anagrams!"
+    end
+  end
+
   def anagrams? (array)
-    # puts "array"
-    # puts array
-    # puts "union"
-    # puts union(array)
-    # puts "array length"
-    # puts array.length
-    # puts "union length"
-    # puts union(array).length
     if array.length != union(array).length
       return true
     else
       return false
     end
   end
+
   def anagram_return_statement(array)
     if anagrams?(array)==true
       "these two words are anagrams!"
     else
       "these two words NOT are anagrams!"
     end
-  end
-  def string_lowercase (string)
-    string.downcase
   end
 
   def has_vowel? (word)
@@ -97,7 +132,6 @@ class Anagrams
         letter_array.push(letter)
       end
     end
-    puts letter_array
     letter_array
   end
 
@@ -108,54 +142,23 @@ class Anagrams
       false
     end
   end
-  def antigram_return_statement(array
-    puts antigram?(array)
+
+  def antigram_return_statement(array)
+    # puts antigram?(array)
     if antigram?(array) == true
-      "these two words are antigrams!"
+      "these words are antigrams!"
     else
       "These words have letter matches and are NOT antigrams."
     end
   end
-  def string_lowercase (string)
-    string.downcase
+  def only_letters (string)
+    string.to_s.gsub(/(\W|\d)/, "")
   end
-
-
-  def anagrams_hashtest?(array)
-    anagram = false
-    word_count = Word_count.new(0)
+  def only_letter_array(array)
+    letter_array = []
     array.each do |word|
-      word_count[word] += 1
+      letter_array.push(word.gsub(/(\W|\d)/, ""))
     end
-    word_count.each do |key,value|
-      puts key
-      puts value
-      if value > 1
-        puts "REACHED"
-        anagram = true
-      end
-    end
-    anagram
-  end
-
-  def anagrams()
-    # splitted_words = []
-    # inputted_words do |letter|
-    #   splitted_words = splitted_words.unshift(letter)
-    # end
-    sorted_words_array = []
-    words_array = @inputted_words.split(" ")
-    words_array.each do |word|
-      letters_array = word.split("").sort.join
-      sorted_words_array.push(letters_array)
-    end
-    sorted_words_list = sorted_words_array.clone
-    i = 0
-    puts sorted_words_array
-    sorted_words_array.each do |word|
-      # end
-    end
-
-    sorted_words_array
+    letter_array
   end
 end
