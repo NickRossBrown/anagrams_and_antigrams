@@ -4,7 +4,7 @@
 
 #### By Nick Brown
 ## Description
-a ruby program that has a method that test for vowels, anagrams, and antigrams. The method has multiple tests.
+a ruby program that has a method that test the words in the inputted sentence for vowels, if the sentence has any anagrams, and if the sentence has any  antigrams.
 
 ## Specifications
 * _1  returns the all the letters in a string to lowercase
