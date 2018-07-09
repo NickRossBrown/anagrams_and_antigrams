@@ -1,0 +1,23 @@
+https://www.websequencediagrams.com/
+
+title Anagrams
+
+Anagram Class -> +all_tests:
+
+all_tests -> all_tests:
+all_tests -> *+ vowel:
+vowel -> vowel:
+vowel -> all_tests: vowel answer
+deactivate vowel
+
+all_tests -> *+ anagram?:
+anagram? -> all_tests: anagram answer
+deactivate anagram?
+
+all_tests-> *+ antigram:
+antigram -> all_tests: antigram answer
+deactivate antigram
+
+all_tests-> Anagram Class: vowel, anagram, and antigram, answers
+
+deactivate all_tests

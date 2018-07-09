@@ -5,14 +5,14 @@ class Anagrams
   end
 
   def all_tests ()
-    words = string_lowercase(@inputted_words)
-    words = sorted_words(words)
-    words = only_letter_array(words)
-    vowel = word_array_vowel(words)
-    anagram = anagram?(words)
-    words = remove_word_letter_duplicates (words)
-    words = union(words)
-    letters = only_letters(words)
+    @inputted_words = string_lowercase(@inputted_words)
+    @inputted_words = sorted_words(@inputted_words)
+    @inputted_words = only_letter_array(@inputted_words)
+    vowel = word_array_vowel(@inputted_words)
+    anagram = anagram?(@inputted_words)
+    @inputted_words = remove_word_letter_duplicates (@inputted_words)
+    @inputted_words = union(@inputted_words)
+    letters = only_letters(@inputted_words)
     antigram = antigram?(letters.split(""))
     vowel + " " + anagram  + " " + antigram
   end
