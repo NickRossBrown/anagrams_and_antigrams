@@ -6,6 +6,10 @@
 ## Description
 a ruby program that has a method that test the words in the inputted sentence for vowels, if the sentence has any anagrams, and if the sentence has any  antigrams.
 
+## Design 
+
+<img width="980" alt="screen shot 2018-07-09 at 12 31 41 pm" src="https://user-images.githubusercontent.com/39496805/42471851-1198dcb0-8374-11e8-87f5-f9cda24385fd.png">
+
 ## Specifications
 * _1  returns the all the letters in a string to lowercase
   - _Example Input: _ "STRING"
